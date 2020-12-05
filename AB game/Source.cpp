@@ -20,7 +20,6 @@ int main() {
 	//generatenums list
 	vector<string> candidates;
 	vector<bool> possible;
-	int remaining = candidates.size();
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 10; j++) {
 			for (int k = 0; k < 10; k++) {
@@ -35,6 +34,7 @@ int main() {
 			}
 		}
 	}
+	int remaining = candidates.size();
 
 	for (int i = 0; i < 4; i++) {
 		int randnum = rand() % (10 - i);
@@ -84,7 +84,7 @@ int main() {
 			}
 		}
 
-		cout << compguess <<"\n";
+		cout <<"Computer's guess: "<< compguess <<"\n";
 		string astring, bstring;
 		while (1) {
 			cin >> astring; cin >> bstring;
@@ -110,10 +110,12 @@ int main() {
 		for (int i = 0; i < candidates.size(); i++) {
 			p = eval(compguess, candidates[i]);
 			if (a != p.first || b != p.second) {
+				if (possible[i] == 1) remaining--;
 				possible[i] = 0;
-				remaining--;
+				
 			}
 		}
+		//cout << "remaining: " << remaining<<"\n";
 		
 		if (remaining == 0) {
 			cout << "You screwed up somewhere, no answer possible";
