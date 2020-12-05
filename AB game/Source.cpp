@@ -42,8 +42,6 @@ int main() {
 		nums.erase(nums.begin() + randnum);
 	}
 
-	for (auto a : ans) cout << a << " ";
-	cout << "\n";
 	while (1) {
 		while (1) {
 			cout << "Make a guess: ";
